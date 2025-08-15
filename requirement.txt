@@ -1,0 +1,35 @@
+# Project: Personalized Book Recommendation System # Description: # This project is a backend + recommendation system for books. # New users will see a general selection of books on first login. # When users collect (bookmark) certain books, the system records their interests. # On the next login, the system recommends books related to their preferred topics. # The recommendation model will be periodically updated based on accumulated user interactions.
+
+# ==============================
+
+# Python version
+
+# ==============================
+
+# python==3.10  # 注释掉Python版本要求，使用系统默认版本
+
+# ==============================
+
+# Core data processing
+
+# ==============================
+
+pandas==2.2.2              # 数据读取与处理（CSV、DataFrame 操作）
+numpy==1.26.4               # 数值运算与矩阵计算
+
+# ==============================
+
+# Machine Learning / Recommender
+
+# ==============================
+
+scikit-learn==1.5.0         # 特征工程、模型训练与评估
+joblib==1.4.2               # 模型保存与加载
+
+# ==============================
+
+# Web Framework
+
+# ==============================
+
+flask==3.0.0                # Web框架，提供API接口
