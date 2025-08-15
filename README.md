@@ -1,247 +1,251 @@
-# 📚 个性化图书推荐系统
+# 📚 Personalized Book Recommendation System
 
-一个基于机器学习的个性化图书推荐系统，支持多种推荐算法，包括协同过滤、内容推荐和混合推荐。
+A machine learning–based personalized book recommendation system supporting multiple recommendation algorithms, including collaborative filtering, content-based recommendation, and hybrid recommendation.
 
-## 🎯 功能特性
+## 🎯 Features
 
-- **多种推荐算法**：
-  - 基于内容的推荐（Content-Based）
-  - 协同过滤推荐（Collaborative Filtering）
-  - 混合推荐（Hybrid）
-  - 热门图书推荐
+* **Multiple Recommendation Algorithms**:
 
-- **智能推荐策略**：
-  - 新用户冷启动处理
-  - 个性化推荐
-  - 实时用户交互记录
+  * Content-Based Recommendation
+  * Collaborative Filtering
+  * Hybrid Recommendation
+  * Popular Books Recommendation
 
-- **Web界面**：
-  - 友好的用户界面
-  - RESTful API接口
-  - 实时推荐结果展示
+* **Intelligent Recommendation Strategies**:
 
-## 📋 系统要求
+  * Cold-start handling for new users
+  * Personalized recommendations
+  * Real-time user interaction logging
 
-- Python 3.10+
-- 依赖包（见 `requirement.txt`）
+* **Web Interface**:
 
-## 🚀 快速开始
+  * User-friendly interface
+  * RESTful API
+  * Real-time recommendation display
 
-### 1. 安装依赖
+## 📋 Requirements
+
+* Python 3.10+
+* Dependencies (see `requirement.txt`)
+
+## 🚀 Quick Start
+
+### 1. Install dependencies
 
 ```bash
 pip install -r requirement.txt
 ```
 
-### 2. 训练模型
+### 2. Train the models
 
 ```bash
 python train_models.py
 ```
 
-这将：
-- 加载和预处理数据
-- 训练基于内容的推荐模型
-- 训练协同过滤模型
-- 训练混合推荐模型
-- 保存所有模型到 `models/` 目录
+This will:
 
-### 3. 启动Web服务
+* Load and preprocess the data
+* Train the content-based recommendation model
+* Train the collaborative filtering model
+* Train the hybrid recommendation model
+* Save all models to the `models/` directory
+
+### 3. Start the Web service
 
 ```bash
 python app.py
 ```
 
-然后在浏览器中访问：http://localhost:5000
+Then visit in your browser: [http://localhost:5000](http://localhost:5000)
 
-### 4. 演示系统功能
+### 4. Run the demo
 
 ```bash
 python demo.py
 ```
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 Recommender System/
-├── book_recommender.py      # 核心推荐系统类
-├── app.py                   # Flask Web应用
-├── train_models.py          # 模型训练脚本
-├── demo.py                  # 演示脚本
-├── requirement.txt          # 依赖包列表
-├── README.md               # 项目说明
-├── goodbooks-10k-master/   # 数据集目录
-│   ├── books.csv           # 图书信息
-│   ├── ratings.csv         # 用户评分
-│   ├── book_tags.csv       # 图书标签
-│   ├── tags.csv            # 标签信息
-│   └── to_read.csv         # 用户想读列表
-└── models/                 # 训练好的模型（自动创建）
+├── book_recommender.py      # Core recommendation system class
+├── app.py                   # FastAPI web app
+├── train_models.py          # Model training script
+├── demo.py                  # Demo script
+├── requirement.txt          # Dependencies list
+├── README.md                # Project documentation
+├── goodbooks-10k-master/    # Dataset folder
+│   ├── books.csv            # Book information
+│   ├── ratings.csv          # User ratings
+│   ├── book_tags.csv        # Book-tag mapping
+│   ├── tags.csv             # Tag information
+│   └── to_read.csv          # Users' to-read list
+└── models/                  # Trained models (auto-created)
 ```
 
-## 🔧 核心组件
+## 🔧 Core Components
 
-### BookRecommender 类
+### BookRecommender Class
 
-主要的推荐系统类，包含以下方法：
+The main recommendation system class with the following methods:
 
-- `load_data()`: 加载数据文件
-- `preprocess_data()`: 数据预处理
-- `build_content_based_model()`: 构建基于内容的推荐模型
-- `build_collaborative_model()`: 构建协同过滤模型
-- `build_hybrid_model()`: 构建混合推荐模型
-- `get_content_recommendations()`: 获取基于内容的推荐
-- `get_collaborative_recommendations()`: 获取协同过滤推荐
-- `get_personalized_recommendations()`: 获取个性化推荐
-- `get_popular_recommendations()`: 获取热门图书推荐
+* `load_data()`: Load data files
+* `preprocess_data()`: Data preprocessing
+* `build_content_based_model()`: Build content-based model
+* `build_collaborative_model()`: Build collaborative filtering model
+* `build_hybrid_model()`: Build hybrid model
+* `get_content_recommendations()`: Get content-based recommendations
+* `get_collaborative_recommendations()`: Get collaborative filtering recommendations
+* `get_personalized_recommendations()`: Get personalized recommendations
+* `get_popular_recommendations()`: Get popular book recommendations
 
-### Web API 接口
+### Web API Endpoints
 
-- `GET /`: 主页面
-- `GET /api/content_recommendations/<book_id>`: 基于内容的推荐
-- `GET /api/personalized_recommendations/<user_id>`: 个性化推荐
-- `GET /api/popular_books`: 热门图书推荐
-- `GET /api/system_info`: 系统信息
-- `GET /api/search_books`: 搜索图书
-- `POST /api/user_interaction`: 记录用户交互
+* `GET /`: Main page
+* `GET /api/content_recommendations/<book_id>`: Content-based recommendations
+* `GET /api/personalized_recommendations/<user_id>`: Personalized recommendations
+* `GET /api/popular_books`: Popular books
+* `GET /api/system_info`: System info
+* `GET /api/search_books`: Search books
+* `POST /api/user_interaction`: Log user interactions
 
-## 🎮 使用示例
+## 🎮 Usage Examples
 
-### 基本使用
+### Basic Usage
 
 ```python
 from book_recommender import BookRecommender
 
-# 初始化推荐系统
+# Initialize
 recommender = BookRecommender()
 
-# 加载已训练的模型
+# Load trained models
 recommender.load_models()
 
-# 获取热门图书推荐
+# Get popular books
 popular_books = recommender.get_popular_recommendations(10)
 
-# 获取基于内容的推荐
+# Get content-based recommendations
 content_recs = recommender.get_content_recommendations(book_id=1, n_recommendations=5)
 
-# 获取个性化推荐
+# Get personalized recommendations
 personalized_recs = recommender.get_personalized_recommendations(user_id=1, n_recommendations=10)
 ```
 
-### Web界面使用
+### Web Interface Usage
 
-1. 启动Web服务后，访问 http://localhost:5000
-2. 在"基于图书的推荐"部分输入图书ID，获取相似图书
-3. 在"个性化推荐"部分输入用户ID，获取个性化推荐
-4. 点击"获取热门图书"查看当前最热门的图书
+1. Start the web service and visit [http://localhost:5000](http://localhost:5000)
+2. In "Book-based Recommendation," enter a book ID to get similar books
+3. In "Personalized Recommendation," enter a user ID to get personalized recommendations
+4. Click "Get Popular Books" to see the most popular books
 
-## 📊 数据集说明
+## 📊 Dataset
 
-使用 Goodreads 10K 数据集，包含：
+Using the Goodreads 10K dataset, which includes:
 
-- **books.csv**: 10,000本图书的基本信息
-- **ratings.csv**: 用户评分数据
-- **book_tags.csv**: 图书标签关联
-- **tags.csv**: 标签信息
-- **to_read.csv**: 用户想读列表
+* **books.csv**: Basic info for 10,000 books
+* **ratings.csv**: User ratings
+* **book\_tags.csv**: Book-tag relationships
+* **tags.csv**: Tag info
+* **to\_read.csv**: Users' to-read lists
 
-## 🔍 推荐算法详解
+## 🔍 Recommendation Algorithms
 
-### 1. 基于内容的推荐（Content-Based）
+### 1. Content-Based
 
-- 使用TF-IDF向量化图书的标题、作者和标签
-- 计算图书间的余弦相似度
-- 基于相似度推荐相似图书
+* TF-IDF vectorization of title, author, and tags
+* Cosine similarity between books
+* Recommend based on similarity
 
-### 2. 协同过滤推荐（Collaborative Filtering）
+### 2. Collaborative Filtering
 
-- 使用SVD（奇异值分解）算法
-- 基于用户-图书评分矩阵
-- 预测用户对未评分图书的评分
+* SVD (Singular Value Decomposition)
+* Based on user-book rating matrix
+* Predict ratings for unseen books
 
-### 3. 混合推荐（Hybrid）
+### 3. Hybrid Recommendation
 
-- 结合用户特征和图书特征
-- 使用LightGBM梯度提升模型
-- 融合多种推荐策略
+* Combine user and book features
+* LightGBM gradient boosting
+* Merge multiple strategies
 
-### 4. 热门推荐
+### 4. Popular Recommendation
 
-- 基于图书的流行度评分
-- 考虑平均评分和评分人数
-- 适合新用户冷启动
+* Based on book popularity score
+* Consider average rating and rating count
+* Suitable for cold-start users
 
-## ⚙️ 配置选项
+## ⚙️ Config Options
 
-可以在 `book_recommender.py` 中调整以下参数：
+Adjustable in `book_recommender.py`:
 
-- TF-IDF特征数量：`max_features=5000`
-- SVD隐因子数量：`n_factors=100`
-- LightGBM参数：`n_estimators=100`, `learning_rate=0.1`
-- 推荐数量：默认10本
+* TF-IDF features: `max_features=5000`
+* SVD factors: `n_factors=100`
+* LightGBM: `n_estimators=100`, `learning_rate=0.1`
+* Default recommendation count: 10
 
-## 🐛 故障排除
+## 🐛 Troubleshooting
 
-### 常见问题
+### Common Issues
 
-1. **模型文件未找到**
-   - 确保已运行 `python train_models.py`
-   - 检查 `models/` 目录是否存在
+1. **Model file not found**
 
-2. **内存不足**
-   - 减少TF-IDF的 `max_features` 参数
-   - 使用数据集的子集进行测试
+   * Make sure to run `python train_models.py`
+   * Check that `models/` exists
 
-3. **训练时间过长**
-   - 可以使用样本数据进行快速测试
-   - 调整模型参数减少训练时间
+2. **Out of memory**
 
-### 性能优化
+   * Reduce TF-IDF `max_features`
+   * Use a subset of the dataset
 
-- 使用更小的数据集进行开发和测试
-- 调整模型参数平衡性能和准确性
-- 考虑使用更高效的算法实现
+3. **Long training time**
 
-## 📈 模型评估
+   * Use sample data for quick tests
+   * Reduce model parameters
 
-系统会自动评估模型性能：
+### Performance Tips
 
-- **协同过滤模型**: RMSE和MAE指标
-- **混合推荐模型**: RMSE和MAE指标
-- **内容推荐**: 基于相似度矩阵
+* Use smaller datasets for dev/testing
+* Tune parameters for balance
+* Consider faster algorithm implementations
 
-## 🔄 模型更新
+## 📈 Model Evaluation
 
-系统支持模型的重训练和更新：
+Automatically evaluates:
+
+* **Collaborative Filtering**: RMSE & MAE
+* **Hybrid**: RMSE & MAE
+* **Content-Based**: Similarity matrix
+
+## 🔄 Model Updating
 
 ```python
-# 重新训练所有模型
+# Retrain all models
 recommender.train_all_models()
 
-# 保存模型
+# Save models
 recommender.save_models()
 ```
 
-## 📝 开发计划
+## 📝 Roadmap
 
-- [ ] 添加更多推荐算法（如深度学习模型）
-- [ ] 实现实时推荐更新
-- [ ] 添加推荐解释功能
-- [ ] 支持更多数据源
-- [ ] 优化Web界面
-- [ ] 添加用户认证系统
+* [ ] Add more algorithms (e.g., deep learning)
+* [ ] Real-time recommendation updates
+* [ ] Explainable recommendations
+* [ ] More data sources
+* [ ] Improved web UI
+* [ ] User authentication
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交Issue和Pull Request来改进这个项目！
+Feel free to submit Issues and Pull Requests.
 
-## 📄 许可证
+## 📄 License
 
-本项目采用MIT许可证。
+MIT License.
 
-## 🙏 致谢
+## 🙏 Acknowledgements
 
-- Goodreads数据集提供者
-- 开源机器学习库的贡献者
-- 推荐系统研究社区
-
+* Goodreads dataset providers
+* Contributors to open-source ML libraries
+* Recommender systems research community
