@@ -236,16 +236,11 @@ recommender.save_models()
 * [ ] Improved web UI
 * [ ] User authentication
 
-## 🤝 Contributing
-
-Feel free to submit Issues and Pull Requests.
-
 ## 📄 License
 
-MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgements
 
-* Goodreads dataset providers
-* Contributors to open-source ML libraries
-* Recommender systems research community
+## Summary
+
+👉 If you found this project helpful, please ⭐ it and share it with others!
