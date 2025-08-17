@@ -4,7 +4,7 @@
 图书推荐系统快速演示
 """
 
-from book_recommender_simple import SimpleBookRecommender
+from models.book_recommender_simple import SimpleBookRecommender
 import pandas as pd
 
 def main():

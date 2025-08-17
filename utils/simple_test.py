@@ -4,7 +4,7 @@
 Simple recommendation feature test script
 """
 
-from book_recommender_simple import SimpleBookRecommender
+from models.book_recommender_simple import SimpleBookRecommender
 
 def test_recommendations():
     """Test the recommendation features"""

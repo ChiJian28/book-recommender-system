@@ -4,7 +4,7 @@
 Debugging script for the recommendation feature
 """
 
-from book_recommender_simple import SimpleBookRecommender
+from models.book_recommender_simple import SimpleBookRecommender
 import pandas as pd
 
 def debug_recommendation():

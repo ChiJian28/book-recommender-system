@@ -4,7 +4,7 @@
 Script to check user preferences
 """
 
-from book_recommender_simple import SimpleBookRecommender
+from models.book_recommender_simple import SimpleBookRecommender
 import pandas as pd
 
 def check_user_preferences():
