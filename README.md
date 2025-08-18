@@ -22,6 +22,12 @@ A machine learning–based personalized book recommendation system supporting mu
   * User-friendly interface
   * RESTful API
   * Real-time recommendation display
+ 
+## 👀 Demo
+[Watch the demo video](https://github.com/user-attachments/assets/5b13d83b-9194-4da2-9dd3-f5420fdc202f)
+
+- **Book-Based:** Searching Book ID 20 (*The Hunger Games*) shows similar books: Hunger Games–related titles.  
+- **Personalized:** User ID 150 (loves Sci-Fi) gets recommendations: *Harry Potter*, *The Wise Man’s Fear*, etc.
 
 ## 📋 Requirements
 
